@@ -203,7 +203,7 @@
 
     <div class="header_div">
 
-      <img src="img/header.png" alt="codey-robot" id="codey">
+      <img src="img/Header.png" alt="codey-robot" id="codey">
       <!-- <div class="player_header"> -->
 
       <!-- </div> -->
