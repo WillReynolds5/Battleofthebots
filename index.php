@@ -148,7 +148,8 @@
 
     .player_name_overall{
 
-      color: blue;
+      color: white;
+      font-size: 50px;
       /*display: inline;*/
 /*
       float: left;
@@ -182,24 +183,234 @@
       // return $db;
 
      ?>
+
      <script type="text/javascript">
 
-       var current_players = firebase.database().ref().child('Current').on('value', function(snapshot) {
-           console.log(snapshot.val());
+       var current_players = firebase.database().ref().child('Current').once('value', function(snapshot) {
+          //  console.log(snapshot.val());
            var snap_players = snapshot.val();
+           var counter = 0;
+           for (var key in snap_players) {
+             console.log(key);
+             console.log(snap_players[key]["name"]);
+            counter += 1;
 
-           console.log(snap_players);
+            var block = document.createElement('div');
+            block.setAttribute("class","block");
+            block.setAttribute("id", counter);
 
-           var players = document.getElementsByClassName('player_name');
-           // console.log(players.);
-           for (var i in players){
-              console.log(players[i].id);
-              // players[i].id = ;
-              console.log(snap_players[i]);
+            var bar_item = document.createElement('div');
+            bar_item.setAttribute("class","bar_item");
+            bar_item.setAttribute("style", "width: 50%; padding-top: 3%; padding-left: 5%;");
+
+
+            var span1 = document.createElement('span');
+            var span2 = document.createElement('span');
+
+            span1.setAttribute("class","player_name");
+            span1.setAttribute("id", "player_name1");
+            span1.innerHTML = snap_players[key]["name"];
+
+            span2.setAttribute("id", "robot_number");
+            span2.innerHTML = "Robot " + counter;
+
+            var line_break = document.createElement('br');
+
+            bar_item.appendChild(span1);
+            bar_item.appendChild(line_break);
+            bar_item.appendChild(span2);
+
+            console.log(counter);
+
+
+
+            var bar_item2 = document.createElement('div');
+            //  bar_item2.class = "bar_item";
+            bar_item2.setAttribute("class","bar_item");
+            bar_item2.setAttribute("style", "width: 45%; padding: 0;");
+            bar_item2.innerHTML = '<span id="player_points">0</span><br/>';
+
+
+           //  var player_points = document.createElement('span');
+           //  player_points.id = "player_points";
+           //  player_points.innerHTML = "12";
+
+           //  bar_item.appendChild(player_name);
+           //  bar_item.appendChild(robot_number);
+           //  bar_item2.appendChild(player_points);
+
+            block.appendChild(bar_item);
+            block.appendChild(bar_item2);
+            document.getElementById('container_inner1').appendChild(block);
+
+           }
+         });
+         var current_score = firebase.database().ref().child('Current').on('value', function(snapshot) {
+
+          //  var score_board = document.getElementById("container_inner1");
+          //  while (score_board.firstChild) {
+          //      myNode.removeChild(myNode.firstChild);
+          //  }
+           var snap_score = snapshot.val();
+           var counter = 0;
+           for (var key in snap_score) {
+
+
+            //  console.log("key");
+            //  console.log(key);
+
+             var player_number = key.charAt(6);
+            //  console.log(player_number);
+
+             var block = document.getElementById(player_number);
+             console.log("block");
+             console.log();
+
+            //  console.log(block.childNodes[1].childNodes[0]);
+             console.log();
+             block.childNodes[1].childNodes[0].innerHTML = snap_score[key]["score"];
+
+
            }
          });
 
+         var overall_player_scores = firebase.database().ref().child('overall_scores').once('value', function(snapshot) {
+            //  console.log(snapshot.val());
+            console.log("OVERALL");
+             var snap_players = snapshot.val();
+             var counter = 0;
+             for (var key in snap_players) {
+              console.log(key);
+              console.log(snap_players[key]["score"]);
+              counter += 1;
+
+              var block = document.createElement('div');
+              block.setAttribute("class","block");
+              // block.setAttribute("id", counter);
+
+              var bar_item = document.createElement('div');
+              bar_item.setAttribute("class","bar_item");
+              bar_item.setAttribute("style", "width: 50%; padding-top: 3%; padding-left: 5%;");
+
+
+              var span1 = document.createElement('span');
+              var span2 = document.createElement('span');
+
+              span1.setAttribute("class","player_name_overall");
+              // span1.setAttribute("id", "player_name1");
+              span1.innerHTML = key;
+
+              span2.setAttribute("class", "robot_number_overall");
+              span2.innerHTML = "Robot " + counter;
+
+              var line_break = document.createElement('br');
+
+              bar_item.appendChild(span1);
+              bar_item.appendChild(line_break);
+              bar_item.appendChild(span2);
+
+              console.log(counter);
+
+
+              var bar_item2 = document.createElement('div');
+              //  bar_item2.class = "bar_item";
+              bar_item2.setAttribute("class","bar_item");
+              bar_item2.setAttribute("style", "width: 45%; padding: 0;");
+
+              // bar_item2.innerHTML = '<span id="player_points">0</span><br/>';
+
+              var span3 = document.createElement('span');
+              span3.setAttribute('id',"player_points");
+              span3.innerHTML = snap_players[key]["score"];
+
+              bar_item2.appendChild(span3);
+             //  var player_points = document.createElement('span');
+             //  player_points.id = "player_points";
+             //  player_points.innerHTML = "12";
+
+             //  bar_item.appendChild(player_name);
+             //  bar_item.appendChild(robot_number);
+             //  bar_item2.appendChild(player_points);
+
+              block.appendChild(bar_item);
+              block.appendChild(bar_item2);
+              document.getElementById('container_inner2').appendChild(block);
+
+             }
+           });
+
+           var time_count = firebase.database().ref().child('Current_game_time').on('value', function(snapshot2){
+             var snap_players = snapshot2.val();
+
+             if (snap_players["timer_on"] == true){
+
+               var counter = 0;
+
+               // for (var key in snap_players) {
+                 console.log("TIMER");
+                 // console.log(key.value);
+                 var countDownDate = snap_players["finishing_time"];
+
+                 x = setInterval(function() {
+
+                   // Get todays date and time
+                   var now = new Date().getTime();
+
+                   // Find the distance between now and the count down date
+                   var distance = countDownDate - now;
+
+                   // Time calculations for days, hours, minutes and seconds
+                   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                   console.log("minutes: ", minutes, "seconds: ", seconds );
+                   var time_stamp = minutes + ":" + seconds;
+                   document.getElementById('timer').innerHTML = time_stamp;
+                   counter += 1;
+                   console.log(time_stamp);
+                   // Display the result in the element with id="demo"
+                   // document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                   // + minutes + "m " + seconds + "s ";
+
+                   // If the count down is finished, write some text
+                   if (distance < 0) {
+                     clearInterval(x);
+                    //  var current_players = firebase.database().ref().child('Current').once('value', function(snapshot) {
+                     //
+                    //    var player_scores = snapshot.val();
+                    //    for (var key in player_scores) {
+                    //      console.log("INFO");
+                    //      console.log(player_scores[key]["score"]);
+                    //      console.log(player_scores[key]["name"]);
+                    //      var name = player_scores[key]["name"];
+                    //      var score = player_scores[key]["score"];
+                     //
+                     //
+                    //      firebase.database().ref().child('overall_scores').child(name).child("score").set(score);
+                    //    }
+                    //  });
+
+                   }
+                 }, 1000);
+             }
+             // }
+           });
+
      </script>
+
+     <!-- //EX-
+     <div class="block">
+       <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
+         <span class="player_name" id="player_name1" ></span><br />
+         <span id="robot_number">Robot #1</span>
+       </div>
+       <div class="bar_item" style="width: 45%; padding: 0;">
+         <span id="player_points">12</span><br/>
+       </div>
+     </div> -->
+
 
     <div class="header_div">
 
@@ -213,247 +424,24 @@
 
     <div class="container_outer">
 
-    <div class="container_inner">
+    <div class="container_inner" id="container_inner1">
+
       <div class="container_inner_header">
+
         Current Game
 
       </div>
-    <!-- BEGINS PLAYER BLOCK -->
-        <div class="block">
-          <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-            <span class="player_name" id="player_name1" ></span><br />
-            <span id="robot_number">Robot #3</span>
-          </div>
-          <div class="bar_item" style="width: 45%; padding: 0;">
-            <span id="player_points">12</span><br/>
-          </div>
-        </div>
-    <!-- END PLAYER BLOCK -->
-
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-        <span class="player_name" id="player_name2">people persons</span><br />
-        <span id="robot_number">Robot #3</span>
-      </div>
-      <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div>
-    </div>
-    <!-- END PLAYER BLOCK -->
-
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-        <span id="player_name3" class="player_name">people persons</span><br />
-        <span id="robot_number">Robot #3</span>
-      </div>
-      <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div>
-    </div>
-    <!-- END PLAYER BLOCK -->
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-        <span id="player_name4" class="player_name">people persons</span><br />
-        <span id="robot_number">Robot #3</span>
-      </div>
-      <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div>
-    </div>
-    <!-- END PLAYER BLOCK -->
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-        <span id="player_name5" class="player_name">people persons</span><br />
-        <span id="robot_number">Robot #3</span>
-      </div>
-      <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div>
-    </div>
-    <!-- END PLAYER BLOCK -->
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-        <span id="player_name6" class="player_name">people persons</span><br />
-        <span id="robot_number">Robot #3</span>
-      </div>
-      <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div>
-    </div>
-    <!-- END PLAYER BLOCK -->
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-        <span id="player_name7" class="player_name">people persons</span><br />
-        <span id="robot_number">Robot #3</span>
-      </div>
-      <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div>
-    </div>
-    <!-- END PLAYER BLOCK -->
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-        <span id="player_name8" class="player_name">people persons</span><br />
-        <span id="robot_number">Robot #3</span>
-      </div>
-      <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div>
-    </div>
-    <!-- END PLAYER BLOCK -->
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-        <span id="player_name9" class="player_name">people persons</span><br />
-        <span id="robot_number">Robot #3</span>
-      </div>
-      <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div>
-    </div>
-    <!-- END PLAYER BLOCK -->
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-        <span id="player_name10" class="player_name">people persons</span><br />
-        <span id="robot_number">Robot #3</span>
-      </div>
-      <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div>
-    </div>
-    <!-- END PLAYER BLOCK -->
 
   </div>
 
 
 
-  <div class="container_inner">
+
+  <div class="container_inner" id="container_inner2">
     <!-- BEGINS PLAYER BLOCK -->
     <div class="container_inner_header">
       Overall
-
     </div>
-    <div class="block">
-      <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-        <span class="player_name_overall">people persons</span><br />
-        <span class="robot_number_overall">1st</span>
-      </div>
-      <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div>
-    </div>
-    <!-- END PLAYER BLOCK -->
-
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-        <span class="player_name_overall">people p  persons</span><br />
-        <span class="robot_number_overall">2nd</span>
-      </div>
-      <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div>
-    </div>
-    <!-- END PLAYER BLOCK -->
-
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-        <span class="player_name_overall">people personitony</span><br />
-        <span class="robot_number_overall">3rd</span>
-      </div>
-      <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div>
-    </div>
-    <!-- END PLAYER BLOCK -->
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-        <span class="player_name_overall">people personitony</span><br />
-        <span class="robot_number_overall">4th</span>
-      </div>
-      <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div>
-    </div>
-    <!-- END PLAYER BLOCK -->
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-        <span class="player_name_overall">people personitony</span><br />
-        <span class="robot_number_overall">5th</span>
-      </div>
-      <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div>
-    </div>
-    <!-- END PLAYER BLOCK -->
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-        <span id="player_name">people personitony</span><br />
-        <span class="robot_number_overall">6th</span>
-      </div>
-      <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div>
-    </div>
-    <!-- END PLAYER BLOCK -->
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-        <span class="player_name_overall">people personitony</span><br />
-        <span class="robot_number_overall">7th</span>
-      </div>
-      <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div>
-    </div>
-    <!-- END PLAYER BLOCK -->
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-        <span class="player_name_overall">people personitony</span><br />
-        <span class="robot_number_overall">8th</span>
-      </div>
-      <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div>
-    </div>
-    <!-- END PLAYER BLOCK -->
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-        <span class="player_name_overall">people personitony</span><br />
-        <span class="robot_number_overall">9th</span>
-      </div>
-      <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div>
-    </div>
-    <!-- END PLAYER BLOCK -->
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-        <span class="player_name_overall">people personitony</span><br />
-        <span class="robot_number_overall">10th</span>
-      </div>
-      <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div>
-    </div>
-    <!-- END PLAYER BLOCK -->
-
-
 
 
 </div>
