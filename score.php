@@ -22,6 +22,7 @@
   </script>
 
   <style type="text/css">
+  @media only screen and (max-device-width: 1030px) {
 
     html, body {
       background: black;
@@ -72,11 +73,11 @@
 
       border-radius: 100px;
 
-      padding-top: 200px;
+      padding-top: 100px;
 
-      margin-left: 200px;
-      margin-right: 200px;
-      margin-bottom: 200px;
+      margin-left: 50px;
+      margin-right: 50px;
+      margin-bottom: 50px;
     }
 
     .container_inner{
@@ -174,6 +175,160 @@
     }
 
 
+  }
+
+  @media only screen and (min-device-width: 1030px) {
+      /* For general iPad layouts */
+      html, body {
+        background: black;
+      }
+      h1{
+        font-size: 70px;
+        font-family: "futura";
+        /* margin-top: 200px; */
+        /* margin-top: 600px; */
+        color: white;
+        display: block;
+        /* position: relative; */
+      }
+
+
+      #codey{
+
+
+        margin-top: 100px;
+        display: block;
+        margin-left: 15%;
+        width: 70%;
+        /* float: left; */
+        /* margin-left: 300px; */
+
+      }
+
+
+      #timer{
+        text-align: center;
+        /*float: left;*/
+
+        /* float: none; */
+        margin-top: -140px;
+      }
+
+      .header_div{
+
+
+      }
+
+      .container_outer{
+        /* margin: 0 auto; */
+
+
+        text-align: center;
+        background: url(img/green-bkgrnd.svg);
+
+        border-radius: 100px;
+
+        padding-top: 200px;
+
+        margin-left: 200px;
+        margin-right: 200px;
+        margin-bottom: 200px;
+      }
+
+      .container_inner{
+
+        /* margin-top: 200 */
+        /* margin-left: 2.5%;
+        margin-right: 2.5%; */
+        border-radius: 50px;
+        text-align: center;
+        /* -webkit-box-shadow: 0 0 10px 30px rgba(0,0,0,0.50) inset; */
+        /* -moz-box-shadow: 0 0 10px 30px rgba(0,0,0,0.50) inset; */
+        /* box-shadow: 0 0 100px 50px rgba(0,0,0,0.50); */
+
+        padding: 0px;
+        /* background: rgba(0,0,0,.48); */
+        margin-bottom: 200px;
+        display: inline-block;
+
+        /* max-width: 900px;
+        min-width: 700px; */
+        width: 900px;
+
+
+    }
+      .container_inner_header{
+        color: black;
+        font-size: 4em;
+        font-family: "futura";
+      }
+
+      .block{
+        display: inline-block;
+        text-align: center;
+        margin: 20px;
+        width: 80%;
+        height: 150px;
+        background: rgba(0,0,0,0.9);
+        box-shadow: 0 30px 25px -20px rgba(0,0,0,0.70);
+        border-radius: 50px;
+
+      }
+      span {
+        color:white;
+      }
+
+      .bar_item{
+        float: left;
+        height: 100%;
+        font-family: "futura";
+      }
+
+      .player_name{
+        font-size: 2.5em;
+
+      }
+      #robot_number{
+        font-size: 2em;
+      }
+
+      .minus {
+        display: table-cell;
+        /*margin: auto;*/
+        /*text-align: center;*/
+      }
+      .player_points{
+
+        display: table-cell;
+        /*margin-top: 10px;/*/
+        /*margin: auto;*/
+        /*padding-top: 20px;*/
+        /*text-align: center;*/
+
+      }
+      .plus{
+        display: table-cell;
+        /*margin: auto;*/
+        /*text-align: center;*/
+
+      }
+
+      .robot_number_overall{
+        font-size: 3em;
+        /*float: left;*/
+        display: inline;
+      }
+
+      .player_name_overall{
+
+        color: blue;
+        /*display: inline;*/
+  /*
+        float: left;
+        margin-right: 20px;*/
+
+      }
+    }
   </style>
   </head>
 
