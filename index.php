@@ -191,8 +191,8 @@
            var snap_players = snapshot.val();
            var counter = 0;
            for (var key in snap_players) {
-             console.log(key);
-             console.log(snap_players[key]["name"]);
+            //  console.log(key);
+            //  console.log(snap_players[key]["name"]);
             counter += 1;
 
             var block = document.createElement('div');
@@ -220,7 +220,7 @@
             bar_item.appendChild(line_break);
             bar_item.appendChild(span2);
 
-            console.log(counter);
+            // console.log(counter);
 
 
 
@@ -263,11 +263,11 @@
             //  console.log(player_number);
 
              var block = document.getElementById(player_number);
-             console.log("block");
-             console.log();
+            //  console.log("block");
+            //  console.log();
 
             //  console.log(block.childNodes[1].childNodes[0]);
-             console.log();
+            //  console.log();
              block.childNodes[1].childNodes[0].innerHTML = snap_score[key]["score"];
 
 
@@ -276,12 +276,27 @@
 
          var overall_player_scores = firebase.database().ref().child('overall_scores').once('value', function(snapshot) {
             //  console.log(snapshot.val());
-            console.log("OVERALL");
              var snap_players = snapshot.val();
-             var counter = 0;
+
+             var overall_player = [];
              for (var key in snap_players) {
-              console.log(key);
-              console.log(snap_players[key]["score"]);
+                // console.log("overall");
+                // console.log(key);
+                // console.log(overall_player);
+                // console.log(snap_players[key]["score"]);
+                overall_player.push([key, snap_players[key]["score"]]);
+
+             }
+
+             bubble_sort(overall_player);
+             console.log("overall");
+             // console.log(key);
+             console.log(overall_player);
+             var counter = 0;
+             for (var row = 0; row < 8; row ++){
+
+              // console.log(key);
+              // console.log(snap_players[key]["score"]);
               counter += 1;
 
               var block = document.createElement('div');
@@ -298,7 +313,7 @@
 
               span1.setAttribute("class","player_name_overall");
               // span1.setAttribute("id", "player_name1");
-              span1.innerHTML = key;
+              span1.innerHTML = overall_player[row][0];
 
               span2.setAttribute("class", "robot_number_overall");
               span2.innerHTML = "Robot " + counter;
@@ -309,7 +324,7 @@
               bar_item.appendChild(line_break);
               bar_item.appendChild(span2);
 
-              console.log(counter);
+              // console.log(counter);
 
 
               var bar_item2 = document.createElement('div');
@@ -321,7 +336,7 @@
 
               var span3 = document.createElement('span');
               span3.setAttribute('id',"player_points");
-              span3.innerHTML = snap_players[key]["score"];
+              span3.innerHTML = overall_player[row][1];
 
               bar_item2.appendChild(span3);
              //  var player_points = document.createElement('span');
@@ -338,6 +353,26 @@
 
              }
            });
+
+
+           function bubble_sort(arr){
+             console.log("SOTRING BEGUN");
+             while(counter != 0){
+             	 var counter = 0;
+               for (var i = 0; i < arr.length - 1; i++){
+
+                 var first = arr[i][1];
+                 var second = arr[i + 1][1];
+                 if (first < second){
+                    var temp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = temp;
+                    counter += 1;
+                 }
+               }
+             }
+             return arr;
+           }
 
            var time_count = firebase.database().ref().child('Current_game_time').on('value', function(snapshot2){
              var snap_players = snapshot2.val();
