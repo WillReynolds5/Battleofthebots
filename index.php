@@ -18,13 +18,15 @@
       storageBucket: "robot-scoreboard-5226d.appspot.com",
       messagingSenderId: "837813444460"
     };
+
     firebase.initializeApp(config);
+
   </script>
 
   <style type="text/css">
 
     html, body {
-      background: black;
+      background: url(img/leadboard_2x_alt.png);
     }
     h1{
       font-size: 70px;
@@ -36,83 +38,104 @@
       /* position: relative; */
     }
 
+    /*TOP LEFT LOGO*/
+    #SF_logo{
 
+      display: inline-block;
+      width: 15%;
+      margin-left: 5%;
+
+      margin-right: 5%;
+      vertical-align: top;
+      margin-top: 150px;
+    }
+
+    /*HEADER IMAGE*/
     #codey{
 
 
       margin-top: 100px;
-      display: block;
-      margin-left: 15%;
-      width: 70%;
-      /* float: left; */
-      /* margin-left: 300px; */
+      display: inline-block;
+
+      /*margin-left: 15%;*/
+      /*float: left;*/
+      width: 50%;
+      /*width: auto;*/
+
 
     }
 
-
+    /*TIMING*/
     #timer{
-      text-align: center;
+
+      /*text-align: center;*/
+      display: inline-block;
+      margin-top: 4%;
+      margin-left: 8%;
+      margin-right: 8%;
+      /*margin-bottom: 100px;*/
+      vertical-align: top;
+      font-size: 100px;
       /*float: left;*/
 
       /* float: none; */
-      margin-top: -140px;
+      /*margin-top: -140px;*/
     }
+
+
 
     .header_div{
 
 
     }
 
+    /*OUTSIDE CONTAINER HOLDING PLAYER COLUNMS*/
     .container_outer{
       /* margin: 0 auto; */
 
 
       text-align: center;
-      background: url(img/green-bkgrnd.svg);
+      /*background: url(img/leadboard_2x_alt.png);*/
 
       border-radius: 100px;
 
       padding-top: 200px;
 
-      margin-left: 200px;
-      margin-right: 200px;
+      /*margin-left: 200px;*/
+      /*margin-right: 200px;*/
       margin-bottom: 200px;
     }
 
+    /*INDIVIDUAL COLUMNS*/
     .container_inner{
 
-      /* margin-top: 200 */
-      /* margin-left: 2.5%;
-      margin-right: 2.5%; */
       border-radius: 50px;
       text-align: center;
-      /* -webkit-box-shadow: 0 0 10px 30px rgba(0,0,0,0.50) inset; */
-      /* -moz-box-shadow: 0 0 10px 30px rgba(0,0,0,0.50) inset; */
-      /* box-shadow: 0 0 100px 50px rgba(0,0,0,0.50); */
 
-      padding: 0px;
-      /* background: rgba(0,0,0,.48); */
       margin-bottom: 200px;
       display: inline-block;
 
       /* max-width: 900px;
       min-width: 700px; */
-      width: 900px;
+      width: 1400px;
 
 
   }
+
+    /*COLUMN HEADERS*/
     .container_inner_header{
       color: black;
       font-size: 4em;
       font-family: "futura";
     }
 
+    /*COLUMN ROWS*/
     .block{
       display: inline-block;
       text-align: center;
       margin: 20px;
       width: 80%;
-      height: 150px;
+      height: 100px;
       background: rgba(0,0,0,0.9);
       box-shadow: 0 30px 25px -20px rgba(0,0,0,0.70);
       border-radius: 50px;
@@ -122,6 +145,7 @@
       color:white;
     }
 
+    /*CONTAINERS WITHIN ROWS*/
     .bar_item{
       /* display: inline-block; */
       float: left;
@@ -129,10 +153,12 @@
       font-family: "futura";
     }
 
+
     .player_name{
       font-size: 2.5em;
 
     }
+
     #robot_number{
       font-size: 2em;
     }
@@ -150,10 +176,21 @@
 
       color: white;
       font-size: 50px;
-      /*display: inline;*/
-/*
-      float: left;
-      margin-right: 20px;*/
+
+    }
+
+    #all-time{
+
+      /*width: 50%;*/
+      height: 70px;
+      margin-bottom: 20px;
+
+    }
+
+    #current{
+      /*width: 70%;*/
+      height: 70px;
+      margin-bottom: 20px;
 
     }
 
@@ -162,27 +199,6 @@
 
   <body>
 
-    <?php
-
-    //
-    // $db = parse_url(getenv("postgres://wckbjkatwgwayc:e9dc7f4d1cf9861d914c506ccd37f1da02def8c72a6a8f8c0731e0589c49517f@ec2-54-163-246-5.compute-1.amazonaws.com:5432/dd5t43u6pmho8r"));
-    // $db["path"] = ltrim($db["path"], "/");
-    // echo $db;
-
-      // $host        = "ec2-54-163-246-5.compute-1.amazonaws.com";
-      // $port        = "port=5432";
-      // $dbname      = "postgresql-solid-54577";
-      // $credentials = "user=wckbjkatwgwayc password=e9dc7f4d1cf9861d914c506ccd37f1da02def8c72a6a8f8c0731e0589c49517f";
-      //
-      // $db = pg_connect( " $url $host $port $dbname $credentials"  );
-      // if(!$db){
-      //    echo "Error : Unable to open database\n";
-      // } else {
-      //    echo "Opened database successfully\n";
-      // }
-      // return $db;
-
-     ?>
 
      <script type="text/javascript">
 
@@ -231,13 +247,6 @@
             bar_item2.innerHTML = '<span id="player_points">0</span><br/>';
 
 
-           //  var player_points = document.createElement('span');
-           //  player_points.id = "player_points";
-           //  player_points.innerHTML = "12";
-
-           //  bar_item.appendChild(player_name);
-           //  bar_item.appendChild(robot_number);
-           //  bar_item2.appendChild(player_points);
 
             block.appendChild(bar_item);
             block.appendChild(bar_item2);
@@ -245,34 +254,27 @@
 
            }
          });
+
+        //  PULLS CURRENT SCORES
+
          var current_score = firebase.database().ref().child('Current').on('value', function(snapshot) {
 
-          //  var score_board = document.getElementById("container_inner1");
-          //  while (score_board.firstChild) {
-          //      myNode.removeChild(myNode.firstChild);
-          //  }
            var snap_score = snapshot.val();
            var counter = 0;
            for (var key in snap_score) {
 
-
-            //  console.log("key");
-            //  console.log(key);
-
              var player_number = key.charAt(6);
-            //  console.log(player_number);
 
              var block = document.getElementById(player_number);
-            //  console.log("block");
-            //  console.log();
 
-            //  console.log(block.childNodes[1].childNodes[0]);
-            //  console.log();
+
              block.childNodes[1].childNodes[0].innerHTML = snap_score[key]["score"];
 
 
            }
          });
+
+        //  PULLS OVER PLAYER SCORES
 
          var overall_player_scores = firebase.database().ref().child('overall_scores').once('value', function(snapshot) {
             //  console.log(snapshot.val());
@@ -280,13 +282,12 @@
 
              var overall_player = [];
              for (var key in snap_players) {
-                // console.log("overall");
-                // console.log(key);
-                // console.log(overall_player);
-                // console.log(snap_players[key]["score"]);
+
+
                 overall_player.push([key, snap_players[key]["score"]]);
 
              }
+
 
              bubble_sort(overall_player);
              console.log("overall");
@@ -295,8 +296,7 @@
              var counter = 0;
              for (var row = 0; row < 8; row ++){
 
-              // console.log(key);
-              // console.log(snap_players[key]["score"]);
+
               counter += 1;
 
               var block = document.createElement('div');
@@ -354,7 +354,7 @@
              }
            });
 
-
+          //  SORTING ALG
            function bubble_sort(arr){
              console.log("SOTRING BEGUN");
              while(counter != 0){
@@ -373,6 +373,8 @@
              }
              return arr;
            }
+
+          //  TIMER
 
            var time_count = firebase.database().ref().child('Current_game_time').on('value', function(snapshot2){
              var snap_players = snapshot2.val();
@@ -435,27 +437,15 @@
 
      </script>
 
-     <!-- //EX-
-     <div class="block">
-       <div class="bar_item" style="width: 50%; padding-top: 3%; padding-left: 5%;">
-         <span class="player_name" id="player_name1" ></span><br />
-         <span id="robot_number">Robot #1</span>
-       </div>
-       <div class="bar_item" style="width: 45%; padding: 0;">
-         <span id="player_points">12</span><br/>
-       </div>
-     </div> -->
-
-
+     <!-- HEADER -->
     <div class="header_div">
 
-      <img src="img/Header.png" alt="codey-robot" id="codey">
-      <!-- <div class="player_header"> -->
-
-      <!-- </div> -->
+      <img src="img/logoSF.png" id="SF_logo" alt="">
+      <img src="img/Battle_Bots_leaderboard_header.png" alt="codey-robot" id="codey">
       <h1 id="timer">0:00</h1>
 
     </div>
+
 
     <div class="container_outer">
 
@@ -463,9 +453,36 @@
 
       <div class="container_inner_header">
 
-        Current Game
+        <img src="img/current.svg" id="current" alt="">
 
       </div>
+      <div class="block">
+        <div class="rank">
+
+        </div>
+        <div class="bar_item_this" style="width: 50%; padding-top: 3%; padding-left: 5%;">
+          <span class="player_name_overall">TESTING</span><br />
+          <span class="robot_number_overall">7th</span>
+        </div>
+        <div class="robot_num">
+
+        </div>
+        <div class="bar_item_this" style="width: 45%; padding: 0;">
+          <span id="player_points">12</span><br />
+        </div>
+      </div>
+
+      <style media="screen">
+      .bar_item_this{
+        /* display: inline-block; */
+        float: left;
+        height: 100%;
+        font-family: "futura";
+      }
+      .robot_num{
+
+      }
+      </style>
 
   </div>
 
@@ -475,14 +492,16 @@
   <div class="container_inner" id="container_inner2">
     <!-- BEGINS PLAYER BLOCK -->
     <div class="container_inner_header">
-      Overall
+
+      <img src="img/all-time.svg" id="all-time" alt="">
+
     </div>
 
 
 </div>
 
 </div>
-<button type="button" name="button" onclick="window.location.href = 'admin.php';">to ADMIN PAGE</button>
+  <button type="button" name="button" onclick="window.location.href = 'admin.php';">to ADMIN PAGE</button>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
   </body>
