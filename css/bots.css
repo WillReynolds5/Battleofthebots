@@ -85,6 +85,7 @@ h1 {
   /* max-width: 900px;
       min-width: 700px; */
   width: 900px;
+  position:relative;
 }
 
 /*COLUMN HEADERS*/
@@ -96,7 +97,7 @@ h1 {
 }
 
 .container_inner_reset {
-  position: absolute;
+  position: relative;
 }
 
 /*COLUMN ROWS*/
@@ -108,7 +109,7 @@ h1 {
   width: 90%;
   height: 70px;
   border-radius: 10px;
-  position: fixed;
+  position: absolute;
 }
 
 .fill {
