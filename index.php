@@ -147,9 +147,9 @@ h1 {
   box-shadow: 0 30px 25px -20px rgba(0, 0, 0, 0.70);
 }
 
-.fill:nth-child(1),
-.fill:nth-child(2),
-.fill:nth-child(1) {
+#container_inner_reset:nth-child(1),
+#container_inner_reset:nth-child(2),
+#container_inner_reset:nth-child(1) {
   background-color: rgba(220, 122, 89, 0.9);
 }
 
