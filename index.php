@@ -26,7 +26,7 @@
 
   </script>
 
-    <style>
+    <!-- <style>
     @font-face {
   font-family: 'Avenir Next';
   src: url("http://www.yoursite.com/fonts/Avenir_Next.otf");
@@ -201,7 +201,7 @@ span {
   opacity: 0;
   transition: visibility 0s 1s, opacity 1s linear;
 }
-    </style>
+    </style> -->
   </head>
 
   <body>
