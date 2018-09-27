@@ -26,6 +26,182 @@
 
   </script>
 
+    <style>
+    @font-face {
+  font-family: 'Avenir Next';
+  src: url("http://www.yoursite.com/fonts/Avenir_Next.otf");
+  /* File to be stored at your site */
+  margin: 0;
+}
+
+html,
+body {
+  background-image: url(img/leadboard_2x_alt.png);
+  margin: 0;
+}
+
+h1 {
+  font-size: 70px;
+  font-family: "futura";
+  /* margin-top: 200px; */
+  /* margin-top: 600px; */
+  color: white;
+  display: block;
+  /* position: relative; */
+}
+
+/*TOP LEFT LOGO*/
+
+#SF_logo {
+  display: inline-block;
+  width: 15%;
+  margin-left: 5%;
+  /*margin-right: 10%;*/
+  vertical-align: top;
+  margin-top: 3%;
+}
+
+/*HEADER IMAGE*/
+
+#codey {
+  margin-top: 50px;
+  display: inline-block;
+  /*width: ;*/
+  height: 150px;
+  margin-left: 15%;
+  margin-right: 15%;
+  /*width: auto;*/
+}
+
+/*TIMING*/
+
+#timer {
+  /*text-align: center;*/
+  display: inline-block;
+  margin-top: 3%;
+  margin-left: 2%;
+  margin-right: 5%;
+  /*margin-bottom: 100px;*/
+  vertical-align: top;
+  font-size: 60px;
+  color: rgba(249, 169, 97, 1);
+}
+
+.header_div {
+  margin-bottom: 50px;
+}
+
+/*OUTSIDE CONTAINER HOLDING PLAYER COLUNMS*/
+
+.container_outer {
+  /* margin: 0 auto; */
+  text-align: center;
+  /*background: url(img/leadboard_2x_alt.png);*/
+  border-radius: 100px;
+  /*padding-bottom: 100px;*/
+  /*margin-left: 200px;*/
+  /*margin-right: 200px;*/
+  /*margin-bottom: 100px;*/
+}
+
+/*INDIVIDUAL COLUMNS*/
+
+.container_inner {
+  border-radius: 50px;
+  text-align: center;
+  /*margin-bottom: 200px;*/
+  display: inline-block;
+  /* max-width: 900px;
+      min-width: 700px; */
+  width: 900px;
+}
+
+/*COLUMN HEADERS*/
+
+.container_inner_header {
+  color: black;
+  font-size: 4em;
+  font-family: "futura";
+}
+
+/*COLUMN ROWS*/
+
+.block {
+  display: inline-block;
+  text-align: center;
+  margin: 1px;
+  width: 90%;
+  height: 70px;
+  border-radius: 10px;
+  position: fixed;
+}
+
+.fill {
+  width: 90%;
+  height: 70px;
+  display: block;
+  text-align: center;
+  /*margin: 1px;*/
+  border-radius: 10px;
+  background: rgba(150, 155, 182, 0.9);
+  box-shadow: 0 30px 25px -20px rgba(0, 0, 0, 0.70);
+}
+
+.fill:nth-child(1),
+.fill:nth-child(2),
+.fill:nth-child(1) {
+  background-color: rgba(220, 122, 89, 0.9);
+}
+
+span {
+  color: white;
+  font-family: "Avenir Next" !important;
+}
+
+/*CONTAINERS WITHIN ROWS*/
+
+.bar_item {
+  /* display: inline-block; */
+  float: left;
+  height: 100%;
+  /*font-family: "futura";*/
+}
+
+.player_name {
+  font-size: 2.5em;
+}
+
+#robot_number {
+  font-size: 2em;
+}
+
+#player_points {
+  font-size: 5em;
+}
+
+.player_name_overall {
+  color: white;
+  /*font-size: 50px;*/
+}
+
+#all-time {
+  /*width: 50%;*/
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+#current {
+  /*width: 70%;*/
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 1s, opacity 1s linear;
+}
+    </style>
   </head>
 
   <body>
