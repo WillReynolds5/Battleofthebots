@@ -26,9 +26,11 @@
 
   @media only screen and (max-device-width: 1030px) {
       html, body {
-        background: black;
+        background: url(img/ipad_background.png);
         /*background: url(img/dark-background.png);*/
+        margin: 0;
       }
+
       h1{
         font-size: 70px;
         font-family: "futura";
@@ -38,99 +40,146 @@
         display: block;
         /* position: relative; */
 
+      }
+      #title_header{
 
+        display: block;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 25%;
 
 
       }
-      #codey{
-        /* margin-top: 100px; */
+
+      #game_master{
+
         display: block;
-        margin-left: 20%;
-        width: 60%;
-        /* float: left; */
-        /* margin-left: 300px; */
+        margin-top: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
 
       }
 
 
 
       .container_outer{
-        /* margin: 0 auto; */
 
         text-align: center;
-        background: url(img/green-bkgrnd.svg);
-
         border-radius: 100px;
-
-        padding-top: 200px;
-
-        margin-left: 50px;
-        margin-right: 50px;
-        margin-bottom: 50px;
-        /*margin: 200px;*/
-
+        margin-left: 20px;
+        margin-right: 20px;
 
       }
 
       .container_inner{
 
-        /* margin-top: 200 */
-        /* margin-left: 2.5%;
-        margin-right: 2.5%; */
         border-radius: 50px;
         text-align: center;
-        /* -webkit-box-shadow: 0 0 10px 30px rgba(0,0,0,0.50) inset; */
-        /* -moz-box-shadow: 0 0 10px 30px rgba(0,0,0,0.50) inset; */
-        /* box-shadow: 0 0 100px 50px rgba(0,0,0,0.50); */
-
         padding: 0px;
-        /* background: rgba(0,0,0,.48); */
-        margin-bottom: 200px;
+        /*margin-bottom: 50px;*/
         display: inline-block;
-
-        /* max-width: 900px;
-        min-width: 700px; */
-        width: 900px;
+        width: 450px;
 
     }
 
       .container_inner_header{
+
         color: white;
         font-size: 4em;
         font-family: "futura";
-        /*text-align: center;*/
+
       }
 
       .block{
+
         display: inline-block;
         text-align: center;
-        margin: 20px;
+        margin: 5px;
         width: 80%;
-        height: 150px;
-        background: rgba(0,0,0,0.9);
+        height: 60px;
+        background: rgba(244,155,163,0.9);
         box-shadow: 0 30px 25px -20px rgba(0,0,0,0.70);
-        border-radius: 50px;
-        border-bottom: solid;
-        border-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+
+
+      }
+      .block_new{
+
+        display: inline-block;
+        text-align: center;
+        margin: 5px;
+        width: 80%;
+        height: 60px;
+        background: rgba(228,74,213,0.9);
+        box-shadow: 0 30px 25px -20px rgba(0,0,0,0.70);
+        border-radius: 10px;
+        overflow: hidden;
+
+
+      }
+
+      .block_header{
+
+        display: inline-block;
+        text-align: center;
+        margin: 5px;
+        width: 80%;
+        height: 50px;
+        /*background: rgba(244,155,163,0.9);
+        box-shadow: 0 30px 25px -20px rgba(0,0,0,0.70);*/
+        /*border-radius: 10px;*/
+        overflow: hidden;
+        font-size: 10pt;
       }
 
       span {
         color:white;
       }
 
+      .bar_item_name{
+       float: left;
+       height: 100%;
+       font-size: 1em;
+       font-family: "avenir next";
+       width: 70%;
+
+      }
       .bar_item{
-        /* display: inline-block; */
-        float: left;
-        height: 100%;
-        font-family: "futura";
+       float: left;
+       height: 100%;
+       font-size: 1em;
+       font-family: "avenir next";
+       width: 20%;
+
       }
 
+      .bar_item2{
+       float: left;
+       height: 100%;
+       font-size: 1em;
+       font-family: "avenir next";
+       width: 20%;
+       padding-top: 1%;
+
+      }
+      .bar_item3{
+       float: left;
+       height: 100%;
+       font-size: 1em;
+       font-family: "avenir next";
+       width: 60%;
+       padding-top: 0;
+
+      }
       #player_name{
         font-size: 2.5em;
 
       }
       #robot_number{
-        font-size: 2em;
+        font-size: 2.5em;
       }
       #player_points{
         font-size: 7em;
@@ -153,26 +202,20 @@
         width: 100%;
         height: 40px;
         border-radius: 10px;
+        background: none;
+        border: none;
+        font-size: .5em;
+        color: white;
+        font-family: "Avenir Next";
+
       }
 
-      #submit{
-        /*float: none;*/
-        width: 10%;
-        height: 50px;
-        padding: 10px;
-        margin-bottom: 0px;
-        margin-left: 10px;
-        border-radius: 10px;
-        border-style: solid;
-        border-width: thick;
-        border-color: black;
-        background-color: rgba(0, 0, 0, 0);
-        font-size: 10px;
-
-        /*text-align: center;*/
-        /*margin-top: 100px;*/
-        /*clear: both;*/
+      input::placeholder{
+        /*margin-top: 3%;*/
+        color: white;
+        /*font-size: 2em;*/
       }
+
 
       /*Button*/
       a.button1{
@@ -207,307 +250,103 @@
       }
 
       #starter{
-        margin-left: 25%;
-        margin-bottom: 150px;
-        width: 500px;
-        display: block;
-        text-align: center;
-        position: absolute;
-      }
 
-      #timer{
-
-        /*width: 200px;*/
-        /*float: left;*/
-        /*margin-bottom: 0px;*/
-        width: 120px;
-        height: 80px;
-        /*background-color: red;*/
-        margin: 10px;
-        /*padding: 20px;*/
-
+        margin-top: 50px;
+        width: 100%;
+        height: 130px;
+        background-image: url(img/texture.png);
         display: inline-block;
         text-align: center;
+      }
+
+      #center_starter{
+
+      }
+
+
+      #submit{
+
+
+
+        padding: 10px;
+        border-radius: 10px;
+        border-style: solid;
+        border-width: thick;
+        border-color: white;
+        background-color: white;
+        font-size: 30px;
+        color: black;
+
+      }
+
+      #submit_names{
+
+
+        width: 250px;
+        height: 80px;
+        margin-left: 20px;
+        padding-top: 35px;
+        float: left;
+
       }
 
       #reset{
 
-        /*float: left;*/
-        /*margin-bottom: 0px;*/
-        /*text-align: center;*/
-
-        width: 100px;
+        width: 80px;
         height: 80px;
-        /*background-color: red;*/
-        margin: 10px;
+        margin-left: 100px;
+        padding-top: 30px;
+        float: left;
 
-        /*padding: 20px;*/
-        padding-top: 50px;
 
-        display: inline-block;
-        text-align: center;
+      }
 
+      #reset:active{
+        opacity: 0.5;
       }
       #play{
 
-        /*float: left;*/
-        /*margin-bottom: 0px;*/
-        /*text-align: center;*/
-        width: 100px;
+        width: 80px;
         height: 80px;
-        /*background-color: red;*/
+        margin-left: 10px;
+        padding-top: 30px;
+        float: left;
 
-        margin: 10px;
+      }
+      #play:active{
+        opacity: 0.5;
+      }
 
-        padding-top: 50px;
+      #pause{
 
-        display: inline-block;
-        text-align: center;
+        width: 80px;
+        height: 80px;
+        margin-left: 10px;
+        padding-top: 30px;
+        float: left;
+      }
+      #pause:active{
+        opacity: 0.5;
+      }
+
+      #timer{
+
+        width: 200px;
+        height: 70px;
+        margin-left: 100px;
+        float: left;
+        overflow: hidden;
+        border-radius: 10px;
+        background-color: white;
+        color: black;
+        font-size: 50px;
+        font-weight: bold;
+        font-family: "Avenir Next";
+
       }
     }
 
 
-@media only screen and (min-device-width: 1030px) {
-    html, body {
-      background: black;
-      /*background: url(img/dark-background.png);*/
-    }
-    h1{
-      font-size: 70px;
-      font-family: "futura";
-      /* margin-top: 200px; */
-      /* margin-top: 600px; */
-      color: white;
-      display: block;
-      /* position: relative; */
-
-
-
-
-    }
-    #codey{
-      /* margin-top: 100px; */
-      display: block;
-      margin-left: 20%;
-      width: 60%;
-      /* float: left; */
-      /* margin-left: 300px; */
-
-    }
-
-
-
-    .container_outer{
-      /* margin: 0 auto; */
-
-      text-align: center;
-      background: url(img/green-bkgrnd.svg);
-
-      border-radius: 100px;
-
-      padding-top: 200px;
-
-      margin-left: 200px;
-      margin-right: 200px;
-      margin-bottom: 200px;
-      /*margin: 200px;*/
-
-
-    }
-
-    .container_inner{
-
-      /* margin-top: 200 */
-      /* margin-left: 2.5%;
-      margin-right: 2.5%; */
-      border-radius: 50px;
-      text-align: center;
-      /* -webkit-box-shadow: 0 0 10px 30px rgba(0,0,0,0.50) inset; */
-      /* -moz-box-shadow: 0 0 10px 30px rgba(0,0,0,0.50) inset; */
-      /* box-shadow: 0 0 100px 50px rgba(0,0,0,0.50); */
-
-      padding: 0px;
-      /* background: rgba(0,0,0,.48); */
-      margin-bottom: 200px;
-      display: inline-block;
-
-      /* max-width: 900px;
-      min-width: 700px; */
-      width: 900px;
-
-  }
-
-    .container_inner_header{
-      color: white;
-      font-size: 4em;
-      font-family: "futura";
-      /*text-align: center;*/
-    }
-
-    .block{
-      display: inline-block;
-      text-align: center;
-      margin: 20px;
-      width: 80%;
-      height: 150px;
-      background: rgba(0,0,0,0.9);
-      box-shadow: 0 30px 25px -20px rgba(0,0,0,0.70);
-      border-radius: 50px;
-      border-bottom: solid;
-      border-color: white;
-    }
-
-    span {
-      color:white;
-    }
-
-    .bar_item{
-      /* display: inline-block; */
-      float: left;
-      height: 100%;
-      font-family: "futura";
-    }
-
-    #player_name{
-      font-size: 2.5em;
-
-    }
-    #robot_number{
-      font-size: 2em;
-    }
-    #player_points{
-      font-size: 7em;
-    }
-
-    .player_name{
-      font-size: 2.5em;
-
-    }
-
-    .bar_item1{
-      padding-top: 4%;
-      padding-left: 40%;
-      margin: auto;
-      font-family: "futura";
-      float: left;
-      height: 100%;
-    }
-    input {
-      width: 100%;
-      height: 40px;
-      border-radius: 10px;
-    }
-
-    #submit{
-      /*float: none;*/
-      width: 10%;
-      height: 50px;
-      padding: 10px;
-      margin-bottom: 0px;
-      margin-left: 10px;
-      border-radius: 10px;
-      border-style: solid;
-      border-width: thick;
-      border-color: black;
-      background-color: rgba(0, 0, 0, 0);
-      font-size: 10px;
-
-      /*text-align: center;*/
-      /*margin-top: 100px;*/
-      /*clear: both;*/
-    }
-
-    /*Button*/
-    a.button1{
-     display:inline-block;
-     padding:0.35em 1.2em;
-     border:0.1em solid #FFFFFF;
-     margin:0 0.3em 0.3em 0;
-     border-radius:0.12em;
-     box-sizing: border-box;
-     text-decoration:none;
-     font-family:'Roboto',sans-serif;
-     font-weight:300;
-     color:#FFFFFF;
-     text-align:center;
-     transition: all 0.2s;
-    }
-    a.button1:hover{
-     color:#000000;
-     background-color:#FFFFFF;
-    }
-    @media all and (max-width:30em){
-     a.button1{
-      display:block;
-      margin:0.4em auto;
-     }
-    }
-
-    .header_div{
-
-      text-align: center;
-
-    }
-
-    #starter{
-      margin-left: 40%;
-      margin-bottom: 150px;
-      width: 500px;
-      display: block;
-      text-align: center;
-      position: absolute;
-    }
-
-    #timer{
-
-      /*width: 200px;*/
-      /*float: left;*/
-      /*margin-bottom: 0px;*/
-      width: 120px;
-      height: 80px;
-      /*background-color: red;*/
-      margin: 10px;
-      /*padding: 20px;*/
-
-      display: inline-block;
-      text-align: center;
-    }
-
-    #reset{
-
-      /*float: left;*/
-      /*margin-bottom: 0px;*/
-      /*text-align: center;*/
-
-      width: 100px;
-      height: 80px;
-      /*background-color: red;*/
-      margin: 10px;
-
-      /*padding: 20px;*/
-      padding-top: 50px;
-
-      display: inline-block;
-      text-align: center;
-
-    }
-    #play{
-
-      /*float: left;*/
-      /*margin-bottom: 0px;*/
-      /*text-align: center;*/
-      width: 100px;
-      height: 80px;
-      /*background-color: red;*/
-
-      margin: 10px;
-
-      padding-top: 50px;
-
-      display: inline-block;
-      text-align: center;
-    }
-  }
 
   </style>
   </head>
@@ -515,29 +354,32 @@
 
   <body>
     <div class="header_div">
-      <img src="img/Header.png" alt="codey-robot" id="codey">
-      <div id="starter">
-        <div id="reset">
-          <img src="img/reset_black.png" style="width: 50px;" id="" onclick="reset_timer()" alt="">
+      <img src="img/Battle-Bots-ipad-header.png" alt="title_header" id="title_header">
+      <img src="img/game_master.png" id="game_master" alt="GAME MASTER">
+    </div>
+
+    <div id="starter">
+      <div class="center_starter">
+        <div id="submit_names" style="">
+           <button type="button" id="submit" onclick="uploadNames()">Submit Names</button>
+        </div>
+        <div id="reset" style="">
+          <img src="img/restart_game.png" style="width: 90%;display: block;margin-left: auto;margin-right: auto;" onclick="reset_timer()" alt="">
 
         </div>
-        <div id="timer">
-          <h2 id="time_stamp" style="font-size:50px; color: black; font-family:'futura';">0:00</h2>
-
+        <div id="pause" style="">
+          <img src="img/pause.png" style="width: 90%;display: block;margin-left: auto;margin-right: auto;" onclick="pause_timer()" id="playbtn" alt="">
         </div>
-        <div id="play">
-          <img src="img/play_black.png" style="width: 50px;" onclick="start_timer()" id="playbtn" alt="">
-
-          <script type="text/javascript">
-            // document.getElementById("playbtn").addEventListener("click", start_timer());
-          </script>
-
+        <div id="play" style="">
+          <img src="img/play.png" style="width: 90%;display: block;margin-left: auto;margin-right: auto;" onclick="start_timer()" id="playbtn" alt="">
+        </div>
+        <div id="timer" style="text-align:center; margin-top:30px;">
+          <p id="time_stamp" style="display:block; margin-top:1%;">0:00</p>
         </div>
       </div>
 
 
     </div>
-
     <div class="container_outer">
 
       <a href="score.php"></a>
@@ -545,17 +387,108 @@
 
       var x = "";
 
+      function start_timer(){
+
+        firebase.database().ref().child('Current_game_time').once('value', function(paused){
+
+          var is_paused = paused.val()['is_paused'];
+
+          if (is_paused == true){
+
+            var time = document.getElementById('time_stamp').innerHTML;
+            var now = new Date().getTime();
+            console.log('NOWOWOOWOW');
+            console.log(time);
+            var times = time.split(":");
+            console.log("MS");
+            var ms = 1000 * ((times[0] * 60) + (times[1]))
+            console.log(ms);
+
+            var countDownDate = ms + now;
+
+            x = setInterval(function() {
+
+              var now = new Date().getTime();
+
+              var distance = countDownDate - now;
+
+              var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+              var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+              var time_stamp = minutes + ":" + seconds;
+              document.getElementById('time_stamp').innerHTML = time_stamp;
+            }, 1000);
+
+            firebase.database().ref().child('Current_game_time').child('is_paused').set(false);
+            firebase.database().ref().child('Current_game_time').child('timer_on').set(true);
+
+          } else {
+
+            var milliseconds = new Date().getTime();
+            console.log("starttime");
+            console.log(milliseconds);
+
+            var end_time = 600000 + milliseconds;
+            console.log("endtime");
+            console.log(end_time);
+
+            firebase.database().ref().child('Current_game_time').child('finishing_time').set(end_time);
+            firebase.database().ref().child('Current_game_time').child('timer_on').set(true);
+            firebase.database().ref().child('Current_game_time').child('is_paused').set(false);
+
+            // test
+            firebase.database().ref().child('Current_game_time').child('playing').set(true);
+            firebase.database().ref().child('Current_game_time').child('playing').set(false);
+
+          }
+        });
+
+      }
+
       function reset_timer() {
 
         clearInterval(x);
         document.getElementById('time_stamp').innerHTML = "0:00";
         firebase.database().ref().child('Current_game_time').child('timer_on').set(false);
+        firebase.database().ref().child('Current_game_time').child('is_paused').set(false);
 
+        firebase.database().ref().child('reload').set(Math.random());
+
+
+
+
+      }
+
+      function pause_timer() {
+        // firebase.database().ref().child('Current_game_time').once(function(snap) {
+          // if (snap.val()['is_paused'] == false){
+            clearInterval(x);
+            firebase.database().ref().child('Current_game_time').child('is_paused').set(true);
+            firebase.database().ref().child('Current_game_time').child('timer_on').set(false);
+
+            // clearInterval(x);
+            firebase.database().ref().child('Current_game_time').once('value', function(end_time){
+                console.log("TIME");
+                console.log(end_time.val()['finishing_time']);
+                var end_time = end_time.val()['finishing_time'];
+                var now = new Date().getTime();
+                var timeleft = end_time - now;
+                console.log(timeleft);
+                var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+                console.log(minutes, "  " ,seconds);
+
+                firebase.database().ref().child('Current_game_time').child('finishing_time').set(end_time);
+
+            });
+          // }
+
+        // });
 
       }
 
         var time_count = firebase.database().ref().child('Current_game_time').on('value', function(snapshot2){
           var snap_players = snapshot2.val();
+          clearInterval(x);
 
           if (snap_players["timer_on"] == true){
 
@@ -591,24 +524,45 @@
 
                 // If the count down is finished, write some text
                 if (distance < 0) {
+
                   clearInterval(x);
                   var current_players = firebase.database().ref().child('Current').once('value', function(snapshot) {
 
                     var player_scores = snapshot.val();
                     for (var key in player_scores) {
                       console.log("INFO");
+                      // console.log;
                       console.log(player_scores[key]["score"]);
                       console.log(player_scores[key]["name"]);
                       var name = player_scores[key]["name"];
                       var score = player_scores[key]["score"];
+                      var robot_num = key;
 
+                      if (name != ""){
 
-                      firebase.database().ref().child('overall_scores').child(name).child("score").set(score);
+                        firebase.database().ref().child('overall_scores').child(name).child("score").set(score);
+                        firebase.database().ref().child('overall_scores').child(name).child("robot_num").set(robot_num);
+
+                      }
                     }
-                  });
+                    // reset_timer();
 
+                    clearInterval(x);
+                    document.getElementById('time_stamp').innerHTML = "0:00";
+                    firebase.database().ref().child('Current_game_time').child('timer_on').set(false);
+                    firebase.database().ref().child('Current_game_time').child('is_paused').set(false);
+                    firebase.database().ref().child('Current_game_time').child('finishing_time').set(15378956389520);
+
+                    console.log("DISTANCE------------------++++++++++++");
+                    console.log(distance);
+
+
+                  });
+                  location.reload();
                 }
               }, 1000);
+          } else {
+
           }
           // }
         });
@@ -618,108 +572,48 @@
             var snap_players = snapshot.val();
             var counter = 0;
             for (var key in snap_players) {
-              console.log(key);
-              console.log(snap_players[key]["name"]);
+
+             console.log(key);
+             console.log(snap_players[key]["name"]);
 
              counter += 1;
 
              var block = document.createElement('div');
-             block.setAttribute("class","block");
+             block.setAttribute("class","block_new");
              block.setAttribute("id", counter);
 
-             var bar_item = document.createElement('div');
-             bar_item.setAttribute("class","bar_item");
-             bar_item.setAttribute("style", "width: 50%; padding-top: 3%; padding-left: 5%;");
-
+             var bar_item1 = document.createElement('div');
+             bar_item1.setAttribute("class","bar_item2");
+             bar_item1.setAttribute("style", "");
 
              var span1 = document.createElement('span');
-             var span2 = document.createElement('span');
 
              span1.setAttribute("class","player_name");
              span1.setAttribute("id", "player_name1");
-             span1.innerHTML = snap_players[key]["name"];
+             span1.innerHTML = counter;
 
-             span2.setAttribute("id", "robot_number");
-             span2.innerHTML = "Robot " + counter;
-
-             var line_break = document.createElement('br');
-
-             bar_item.appendChild(span1);
-             bar_item.appendChild(line_break);
-             bar_item.appendChild(span2);
-
-             console.log(counter);
-
-             // bar_item.innerHTML = '<span class="player_name" id="player_name1"></span><br /><span id="robot_number">asdfasdfa</span>';
-            //  var player_name = document.createElement('span');
-            //  player_name.id = "player_name1";
-            //  player_name.class = "player_name";
-            //  player_name.innerHTML = "player holder";
-            //  var robot_number = document.createElement('span');
-            //  robot_number.id = "player_name";
-            //  robot_number.innerHTML = "robot #__";
-
+             bar_item1.appendChild(span1);
 
              var bar_item2 = document.createElement('div');
-             //  bar_item2.class = "bar_item";
              bar_item2.setAttribute("class","bar_item");
-             bar_item2.setAttribute("style", "width: 45%; padding: 0;");
-            //  bar_item2.innerHTML = '<span id="player_points">12</span><br/>';
-
-             //SCORE
-             var span3 = document.createElement('span');
-             span3.innerHTML = snap_players[key]["score"];
-             span3.setAttribute("id", "player_points");
-            //  span3.setAttribute("style", "font-size: 5em;");
-             bar_item2.appendChild(span3);
+             bar_item2.setAttribute("style", "width: 70%; padding-top: 3%; text-align:left;");
 
 
-            //  var player_points = document.createElement('span');
-            //  player_points.id = "player_points";
-            //  player_points.innerHTML = "12";
+             var span2 = document.createElement('span');
+            //  span2.setAttribute("id", "robot_number");
+            span2.setAttribute('style', 'font-size: 1.5em;')
+            span2.innerHTML = snap_players[key]["name"];
 
-            //  bar_item.appendChild(player_name);
-            //  bar_item.appendChild(robot_number);
-            //  bar_item2.appendChild(player_points);
+            bar_item2.appendChild(span2);
 
-            // var line_break = document.createElement('br');
+            block.appendChild(bar_item1);
+            block.appendChild(bar_item2);
+            //  block.appendChild(bar_item3);
 
-
-            // bar_item.appendChild(line_break);
-             block.appendChild(bar_item);
-             block.appendChild(bar_item2);
-             document.getElementById('container_inner1').appendChild(block);
-
+            document.getElementById('container_inner1').appendChild(block);
             }
           });
-          var current_score = firebase.database().ref().child('Current').on('value', function(snapshot) {
 
-           //  var score_board = document.getElementById("container_inner1");
-           //  while (score_board.firstChild) {
-           //      myNode.removeChild(myNode.firstChild);
-           //  }
-            var snap_score = snapshot.val();
-            var counter = 0;
-            for (var key in snap_score) {
-
-
-             //  console.log("key");
-             //  console.log(key);
-
-              var player_number = key.charAt(6);
-             //  console.log(player_number);
-
-              var block = document.getElementById(player_number);
-              console.log("block");
-              console.log();
-
-              console.log(block.childNodes[1].childNodes[0]);
-              console.log();
-              block.childNodes[1].childNodes[0].innerHTML = snap_score[key]["score"];
-
-
-            }
-          });
 
           function testing(){
             var current_players = firebase.database().ref().child('Current').once('value', function(snapshot) {
@@ -732,7 +626,6 @@
                 var name = player_scores[key]["name"];
                 var score = player_scores[key]["score"];
 
-
                 firebase.database().ref().child('overall_scores').child(name).child("score").set(score);
               }
             });
@@ -743,115 +636,121 @@
     <div class="container_inner" id="container_inner1">
       <div class="container_inner_header" onclick="testing()">
 
-        Current Game
+        <img src="img/current.png" alt="Current">
 
       </div>
+      <div class="block_header">
+        <div class="bar_item2" style="padding-top:4
+        %;">
+          <span id="" style="font-size:15pt;font-weight:bold; ">ROBOT</span>
+        </div>
+        <div class="bar_item3" style="padding-top: 3%;">
+          <span id="" style="font-size:15pt;font-weight:bold; margin-left:-20%;">NAME</input></span>
+        </div>
+      </div>
+
     </div>
 
     <div class="container_inner">
       <div class="container_inner_header">
-        Next Game<button type="submit" name="button" id="submit" onclick="uploadNames()">Submit</button>
+        <img src="img/next.png" alt="Current">
 
       </div>
-    <!-- BEGINS PLAYER BLOCK -->
-        <div class="block">
-          <div class="bar_item1" >
-            <span id="player_name"><input id="player_name1"></input></span><br />
-            <span id="robot_number">Robot 1</span>
-          </div>
-          <!-- <div class="bar_item" style="width: 45%; padding: 0;">
-            <span id="player_points">12</span><br />
-          </div> -->
+      <div class="block_header">
+        <div class="bar_item2" style="padding-top:4%;">
+          <span id="" style="font-size:15pt;font-weight:bold; ">ROBOT</span>
         </div>
-    <!-- END PLAYER BLOCK -->
-
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item1" >
-        <span id="player_name"><input id="player_name2"></input></span><br />
-        <span id="robot_number">Robot 2</span>
+        <div class="bar_item3" style="padding-top: 3%;">
+          <span id="" style="font-size:15pt;font-weight:bold; margin-left:-20%;">NAME</input></span>
+        </div>
       </div>
-      <!-- <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div> -->
-    </div>
-    <!-- END PLAYER BLOCK -->
 
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item1" >
-        <span id="player_name"><input id="player_name3"></input></span><br />
-        <span id="robot_number">Robot 3</span>
+      <div class="block">
+        <div class="bar_item2">
+          <span id="robot_number">1</span>
+        </div>
+        <div class="bar_item3">
+          <span id="player_name"><input id="player_name1" onblur="check_length(this)" placeholder=""></input></span>
+        </div>
       </div>
-      <!-- <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div> -->
-    </div>
-    <!-- END PLAYER BLOCK -->
 
-    <!-- BEGINS PLAYER BLOCK -->
     <div class="block">
-      <div class="bar_item1" >
-        <span id="player_name"><input id="player_name4"></input></span><br />
-        <span id="robot_number">Robot 4</span>
+      <div class="bar_item2">
+        <span id="robot_number">2</span>
       </div>
-      <!-- <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div> -->
+      <div class="bar_item3">
+        <span id="player_name"><input id="player_name2" onblur="check_length(this)" placeholder=""></input></span>
+      </div>
     </div>
-    <!-- END PLAYER BLOCK -->
 
 
-    <!-- BEGINS PLAYER BLOCK -->
     <div class="block">
-      <div class="bar_item1" >
-        <span id="player_name"><input id="player_name5"></input></span><br />
-        <span id="robot_number">Robot 5</span>
+      <div class="bar_item2">
+        <span id="robot_number">3</span>
       </div>
-      <!-- <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div> -->
+      <div class="bar_item3">
+        <span id="player_name"><input id="player_name3" onblur="check_length(this)" placeholder=""></input></span>
+      </div>
     </div>
-    <!-- END PLAYER BLOCK -->
 
-    <!-- BEGINS PLAYER BLOCK -->
-    <div class="block">
-      <div class="bar_item1" >
-        <span id="player_name"><input id="player_name6"></input></span><br />
-        <span id="robot_number">Robot 6</span>
-      </div>
-      <!-- <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div> -->
-    </div>
-    <!-- END PLAYER BLOCK -->
 
-    <!-- BEGINS PLAYER BLOCK -->
     <div class="block">
-      <div class="bar_item1" >
-        <span id="player_name"><input id="player_name7"></input></span><br />
-        <span id="robot_number">Robot 7</span>
+      <div class="bar_item2">
+        <span id="robot_number">4</span>
       </div>
-      <!-- <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div> -->
+      <div class="bar_item3">
+        <span id="player_name"><input id="player_name4" onblur="check_length(this)" placeholder=""></input></span>
+      </div>
     </div>
-    <!-- END PLAYER BLOCK -->
 
-    <!-- BEGINS PLAYER BLOCK -->
     <div class="block">
-      <div class="bar_item1" >
-        <span id="player_name"><input id="player_name8"></input></span><br />
-        <span id="robot_number">Robot 8</span>
+      <div class="bar_item2">
+        <span id="robot_number">5</span>
       </div>
-      <!-- <div class="bar_item" style="width: 45%; padding: 0;">
-        <span id="player_points">12</span><br />
-      </div> -->
+      <div class="bar_item3">
+        <span id="player_name"><input id="player_name5" onblur="check_length(this)" placeholder=""></input></span>
+      </div>
     </div>
-    <!-- END PLAYER BLOCK -->
+
+    <div class="block">
+      <div class="bar_item2">
+        <span id="robot_number">6</span>
+      </div>
+      <div class="bar_item3">
+        <span id="player_name"><input id="player_name6" onblur="check_length(this)" placeholder=""></input></span>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bar_item2">
+        <span id="robot_number">7</span>
+      </div>
+      <div class="bar_item3">
+        <span id="player_name"><input id="player_name7" onblur="check_length(this)" placeholder=""></input></span>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bar_item2">
+        <span id="robot_number">8</span>
+      </div>
+      <div class="bar_item3">
+        <span id="player_name"><input id="player_name8" onblur="check_length(this)" placeholder=""></input></span>
+      </div>
+    </div>
 
     <script type="text/javascript">
 
+        function check_length(characters){
+
+          console.log(characters.value.length);
+          if (characters.value.length > 20){
+            alert("names cannot be more than 20 characters. :(");
+            return;
+          }
+
+
+        }
 
         function uploadNames() {
 
@@ -900,49 +799,24 @@
               'score': 0
             }
           };
+
+          for (var names in playerData){
+            console.log("NAME");
+            console.log(playerData[names]['name'].length);
+            if (playerData[names]['name'].length > 20 ){
+              alert(names + "'s name cannot be more than 20 characters. :(");
+              return;
+            }
+          }
+          console.log("RELOADED");
+          firebase.database().ref().child('Current_game_time').child('is_paused').set(false);
+          firebase.database().ref().child('Current_game_time').child('timer_on').set(false);
+
           firebase.database().ref().child('Current').set(playerData);
           location.reload();
 
-      }
-
-      function start_timer(){
-
-        var milliseconds = new Date().getTime();
-        console.log("starttime");
-        console.log(milliseconds);
-
-        var end_time = 600000 + milliseconds
-        console.log("endtime");
-        console.log(end_time);
-
-        firebase.database().ref().child('Current_game_time').child('finishing_time').set(end_time);
-        firebase.database().ref().child('Current_game_time').child('timer_on').set(true);
 
       }
-
-
-
-
-        // document.getElementsByTagName('textarea')
-        // var playerNames = document.getElementsByTagName('textarea');
-
-        // object.addEventListener("click", myScript);
-        // for (var textarea in playerNames){
-        //
-        //   document.getElementById(playerNames[textarea].id).addEventListener("blur", function() {
-        //       console.log(this.getAttribute('id'));
-        //       console.log(this.value);
-        //       var playerData = {
-        //         'name': this.value,
-        //         'score': 0
-        //       };
-        //
-        //       firebase.database().ref().child('Current').child(this.getAttribute('id')).set(playerData);
-        //
-        //   }, false);
-        //
-        // }
-
 
     </script>
 
@@ -951,6 +825,12 @@
 
 
   </div>
+  <style media="screen">
+    body,html{
+      text-align: center;
+    }
+  </style>
+  <img src="img/logoSF.png" style="width: 30%; margin-top:20px;" alt="">
   <!-- <button type="button" name="button" onclick="window.location.href = 'index.php';">Back</button> -->
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
